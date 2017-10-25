@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies</title>
+</head>
+<body>
+    <h1>Your movies</h1>
+    {% for movie in movies %}
+        <li><a href="http://www.imdb.com/title/{{ movie.imdb }}">{{ movie.title }}, {{ movie.year }}</a></li>
+    {% else %}
+        <li>No movies found.</li>
+    {% endfor %}
+
+    <h3>Add a movie</h3>
+    <form action="/add-movie" method="POST">
+        Title: <input type="text" name="title"><br>
+        Year: <input type="text" name="year"><br>
+        IMDB: <input type="text" name="imdb"><br><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
